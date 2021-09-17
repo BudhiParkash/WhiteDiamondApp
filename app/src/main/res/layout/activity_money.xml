@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Activity.MoneyActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:id="@+id/bckfrommoney"
+                app:drawableStartCompat="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Money"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:textSize="18sp"/>
+
+
+        </RelativeLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="@color/black"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:src="@drawable/diamond"
+                            android:background="@color/black"
+                            android:scaleType="centerCrop"
+                            />
+
+
+                        <TextView
+                            android:id="@+id/txtnumbermoney"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textSize="28sp"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"
+                            />
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    app:strokeColor="@color/primaryTextColor"
+                    app:strokeWidth="1dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/gameNameM"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="जय माता दी"
+                            android:layout_centerInParent="true"
+                            android:textSize="32sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            />
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_margin="16sp"
+                    app:cardCornerRadius="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:background="@drawable/splash_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_alignParentStart="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Balance"
+                            android:layout_marginStart="10dp"
+                            android:padding="10dp"
+                            android:textColor="@color/white"
+                            android:layout_centerInParent="true"
+                            android:textSize="28sp"
+                            />
+                        <TextView
+                            android:padding="10dp"
+                            android:layout_centerInParent="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5000 PT"
+                            android:gravity="end"
+                            android:layout_marginEnd="10dp"
+                            android:textColor="@color/white"
+                            android:textSize="28sp"
+                            />
+
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:id="@+id/textInputEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_marginTop="@dimen/loginViewsMargin">
+                    <EditText
+                        android:id="@+id/etxPoints"
+                        style="@style/modifiedEditText"
+                        android:inputType="number"
+                        android:maxLines="1"
+                        android:textSize="16sp"
+                        android:hint="Enter Points"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <LinearLayout
+                    android:layout_margin="16dp"
+                    android:weightSum="4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txt10"
+                        android:textColor="@color/textcolor"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+
+                        />
+                    <TextView
+                        android:id="@+id/txt20"
+                        android:textColor="@color/textcolor"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="20"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/txt50"
+                        android:textColor="@color/textcolor"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="50"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/txt100"
+                        android:textColor="@color/textcolor"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="100"
+
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_margin="16dp"
+                    android:weightSum="4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/txt200"
+                        android:textColor="@color/textcolor"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="200"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/txt1000"
+                        android:textColor="@color/textcolor"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1000"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/txt2000"
+                        android:textColor="@color/textcolor"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2000"
+                        />
+                    <TextView
+                        android:id="@+id/txt5000"
+                        android:textColor="@color/textcolor"
+                        android:textSize="24sp"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5000"
+
+                        />
+
+                </LinearLayout>
+
+
+                <android.widget.Button
+                    android:id="@+id/submitButton"
+                    style="@style/loginButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/loginViewsMargin"
+                    android:text="Submit" />
+
+                <View
+                    android:layout_marginTop="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@color/viewline"/>
+
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_margin="10dp"
+                    app:strokeColor="@color/viewline"
+                    app:strokeWidth="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:padding="5dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" जय माता दी :- विजेता नंबर लिस्ट "
+                            android:textColor="@color/primaryTextColor"
+                            android:textSize="20sp"
+                            />
+                        <TextView
+                            android:layout_gravity="end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="एक वीक का रिजल्ट"
+                            android:textColor="@color/primaryTextColor"
+                            />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <include layout="@layout/layout_result"/>
+
+                <include layout="@layout/layout_result"/>
+
+                <include layout="@layout/layout_result"/>
+
+                <include layout="@layout/layout_result"/>
+
+                <include layout="@layout/layout_result"/>
+
+            </LinearLayout>
+
+
+
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminateTint="@color/colorPrimary"
+        android:id="@+id/moneyProgressbar"
+        />
+
+</RelativeLayout>

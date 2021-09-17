@@ -1,6 +1,7 @@
 package com.example.whitediamond.ui.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,6 +24,7 @@ public class SplashScreen extends AppCompatActivity {
     private Animation splashAnimation;
 //    Handler handler;
 //    Runnable runnable;
+    private String tokken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,8 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         initView();
         FullScreencall();
+        SharedPreferences prefs = getSharedPreferences("ProfileData", MODE_PRIVATE);
+        tokken = prefs.getString("tokken", "no tokkens");
 
         splashAnimation = AnimationUtils.loadAnimation(this , R.anim.splashanimation);
 
@@ -46,9 +50,16 @@ public class SplashScreen extends AppCompatActivity {
                new Handler(getMainLooper()).postDelayed(new Runnable() {
                    @Override
                    public void run() {
-                       Intent intent = new Intent(SplashScreen.this , Login.class);
-                       startActivity(intent);
-                       finish();
+                       if (tokken.equals("no tokkens")) {
+                           Intent intent = new Intent(SplashScreen.this , Login.class);
+                           startActivity(intent);
+                           finish();
+
+                       } else {
+                           Intent intent = new Intent(SplashScreen.this , MainActivity.class);
+                           startActivity(intent);
+                           finish();
+                       }
                    }
                },500);
 

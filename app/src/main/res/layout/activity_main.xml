@@ -129,22 +129,23 @@
             </com.google.android.material.card.MaterialCardView>
 
 
-            <!--<androidx.recyclerview.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/gameRecyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
 
 
 
-            </androidx.recyclerview.widget.RecyclerView>-->
+            </androidx.recyclerview.widget.RecyclerView>
 
+        <!--    <include layout="@layout/layout_scheme_name"/>-->
+<!--
             <include layout="@layout/layout_scheme_name"/>
 
             <include layout="@layout/layout_scheme_name"/>
 
-            <include layout="@layout/layout_scheme_name"/>
-
-            <include layout="@layout/layout_scheme_name"/>
+            <include layout="@layout/layout_scheme_name"/>-->
 
 
 
@@ -157,7 +158,13 @@
 
 
 
-
+<ProgressBar
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:visibility="gone"
+    android:id="@+id/mainProgressbar"
+    />
 
     </RelativeLayout>
 
