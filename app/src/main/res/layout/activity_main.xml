@@ -72,10 +72,10 @@
 
                         <TextView
                             android:layout_gravity="center"
-
+                            android:id="@+id/userName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Hi! Shivam"
+                            android:text=""
                             android:textSize="30sp"
                             android:textColor="@color/primaryTextColor"/>
             </LinearLayout>
@@ -95,8 +95,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5000 PT"
-
+                        android:text=""
+                        android:id="@+id/diamondpoints"
                         android:textColor="@color/white"
                         android:layout_centerInParent="true"
                         android:textSize="48sp"

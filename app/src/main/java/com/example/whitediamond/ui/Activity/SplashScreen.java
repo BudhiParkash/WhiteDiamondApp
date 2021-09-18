@@ -15,6 +15,7 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.whitediamond.AdminApp.AdminMainActivity;
 import com.example.whitediamond.MainActivity;
 import com.example.whitediamond.R;
 
@@ -25,6 +26,7 @@ public class SplashScreen extends AppCompatActivity {
 //    Handler handler;
 //    Runnable runnable;
     private String tokken;
+    private boolean superadmin = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class SplashScreen extends AppCompatActivity {
         FullScreencall();
         SharedPreferences prefs = getSharedPreferences("ProfileData", MODE_PRIVATE);
         tokken = prefs.getString("tokken", "no tokkens");
+        superadmin = prefs.getBoolean("superAdmin" , false);
 
         splashAnimation = AnimationUtils.loadAnimation(this , R.anim.splashanimation);
 
@@ -56,9 +59,17 @@ public class SplashScreen extends AppCompatActivity {
                            finish();
 
                        } else {
-                           Intent intent = new Intent(SplashScreen.this , MainActivity.class);
-                           startActivity(intent);
-                           finish();
+                           if(superadmin){
+                               Intent intent = new Intent(SplashScreen.this , AdminMainActivity.class);
+                               startActivity(intent);
+                               finish();
+                           }
+                           else {
+                               Intent intent = new Intent(SplashScreen.this , MainActivity.class);
+                               startActivity(intent);
+                               finish();
+                           }
+
                        }
                    }
                },500);

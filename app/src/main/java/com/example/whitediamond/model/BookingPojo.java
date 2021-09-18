@@ -22,6 +22,11 @@ public class BookingPojo {
     @Expose
     private String userId;
 
+    @SerializedName("winningProb")
+    @Expose
+    public boolean winningProb;
+
+
     public BookingPojo(String gameName, String date, String numberSelected, int pointUsed, String userId) {
         this.gameName = gameName;
         this.date = date;
@@ -68,5 +73,12 @@ public class BookingPojo {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+    public boolean isWinningProb() {
+        return winningProb;
+    }
+
+    public void setWinningProb(boolean winningProb) {
+        this.winningProb = winningProb;
     }
 }

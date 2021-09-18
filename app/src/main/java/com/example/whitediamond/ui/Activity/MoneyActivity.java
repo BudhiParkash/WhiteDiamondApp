@@ -45,6 +45,8 @@ public class MoneyActivity extends AppCompatActivity {
     private String tokken;
     private TextView mTxtnumbermoney;
     private ProgressBar mMoneyProgressbar;
+    private int totaldiamondPoint;
+    private TextView mPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +54,17 @@ public class MoneyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_money);
         initView();
         SharedPreferences prefs = getSharedPreferences("ProfileData", MODE_PRIVATE);
-        tokken = prefs.getString("tokken", "no tokkens");
-        userID = prefs.getString("userId", "null");
+        try {
+            tokken = prefs.getString("tokken", "no tokkens");
+            userID = prefs.getString("userId", "null");
+            totaldiamondPoint = prefs.getInt("dp", 0);
+
+        }
+        catch (Exception e){
+
+        }
+
+        mPoints.setText(totaldiamondPoint+"");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd 'at' h:mm a");
         bookingdate = sdf.format(new Date());
         try {
@@ -201,16 +212,18 @@ public class MoneyActivity extends AppCompatActivity {
         mSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String finalPoints = mEtxPoints.getText().toString();
-                if (finalPoints.length() == 1) {
+                String betPoints = mEtxPoints.getText().toString();
+                if (betPoints.length() == 1) {
                     mEtxPoints.setError("Minimum value is 10");
                     mEtxPoints.requestFocus();
-                } else if (finalPoints.isEmpty()) {
+                } else if (betPoints.isEmpty()) {
                     mEtxPoints.setError("Minimum value is 10");
+                    mEtxPoints.requestFocus();
+                } else if (Integer.parseInt(betPoints) > totaldiamondPoint) {
+                    mEtxPoints.setError("You have not sufficent balance");
                     mEtxPoints.requestFocus();
                 } else {
-                    Toast.makeText(MoneyActivity.this, "" + finalPoints, Toast.LENGTH_SHORT).show();
-                    donebooking(finalPoints);
+                    donebooking(betPoints);
                 }
 
 
@@ -232,6 +245,7 @@ public class MoneyActivity extends AppCompatActivity {
                     mMoneyProgressbar.setVisibility(View.GONE);
                     DoneDialogueFragment bookingDialogueFragment = new DoneDialogueFragment();
                     bookingDialogueFragment.show(getSupportFragmentManager(), "Donefragment");
+                    bookingDialogueFragment.setCancelable(false);
                 } else {
                     mMoneyProgressbar.setVisibility(View.GONE);
                     Toast.makeText(MoneyActivity.this, "failed", Toast.LENGTH_SHORT).show();
@@ -263,5 +277,6 @@ public class MoneyActivity extends AppCompatActivity {
         mTxt5000 = findViewById(R.id.txt5000);
         mTxtnumbermoney = findViewById(R.id.txtnumbermoney);
         mMoneyProgressbar = findViewById(R.id.moneyProgressbar);
+        mPoints = findViewById(R.id.points);
     }
 }

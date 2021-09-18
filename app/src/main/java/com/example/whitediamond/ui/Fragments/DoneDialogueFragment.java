@@ -1,5 +1,6 @@
 package com.example.whitediamond.ui.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.whitediamond.MainActivity;
 import com.example.whitediamond.R;
 
 public class DoneDialogueFragment extends DialogFragment {
@@ -26,6 +28,9 @@ public class DoneDialogueFragment extends DialogFragment {
         mBtnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getActivity() , MainActivity.class);
+                startActivity(intent);
+                getActivity().finish();
                 getDialog().dismiss();
             }
         });

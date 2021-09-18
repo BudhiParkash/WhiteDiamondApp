@@ -141,12 +141,13 @@
                             android:textSize="28sp"
                             />
                         <TextView
+                            android:id="@+id/points"
                             android:padding="10dp"
                             android:layout_centerInParent="true"
                             android:layout_alignParentEnd="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5000 PT"
+                            android:text=""
                             android:gravity="end"
                             android:layout_marginEnd="10dp"
                             android:textColor="@color/white"
@@ -296,56 +297,9 @@
                     android:layout_marginTop="@dimen/loginViewsMargin"
                     android:text="Submit" />
 
-                <View
-                    android:layout_marginTop="30dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="30dp"
-                    android:background="@color/viewline"/>
 
+              <!--  <include layout="@layout/layout_result"/>-->
 
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_margin="10dp"
-                    app:strokeColor="@color/viewline"
-                    app:strokeWidth="2dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-
-                    <LinearLayout
-                        android:padding="5dp"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=" जय माता दी :- विजेता नंबर लिस्ट "
-                            android:textColor="@color/primaryTextColor"
-                            android:textSize="20sp"
-                            />
-                        <TextView
-                            android:layout_gravity="end"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="एक वीक का रिजल्ट"
-                            android:textColor="@color/primaryTextColor"
-                            />
-
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <include layout="@layout/layout_result"/>
-
-                <include layout="@layout/layout_result"/>
-
-                <include layout="@layout/layout_result"/>
-
-                <include layout="@layout/layout_result"/>
-
-                <include layout="@layout/layout_result"/>
 
             </LinearLayout>
 

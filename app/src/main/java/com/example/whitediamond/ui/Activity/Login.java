@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.whitediamond.AdminApp.AdminMainActivity;
 import com.example.whitediamond.Api.ApiClientInterface;
 import com.example.whitediamond.MainActivity;
 import com.example.whitediamond.R;
@@ -62,7 +63,43 @@ public class Login extends AppCompatActivity {
                     mEditTextPassword.setError("Please Enter Password");
                     mEditTextPassword.requestFocus();
                     return;
-                } else {
+                }
+                else if(username.equals("superadmin@gmail.com") || pass.equals("super@123")){
+                    mLoginProgressbar.setVisibility(View.VISIBLE);
+                    UserPojo newLogin = new UserPojo(username, pass);
+                    Call<LoginPojo> logins = ApiClientInterface.getWDApiService().login(newLogin);
+
+                    logins.enqueue(new Callback<LoginPojo>() {
+                        @Override
+                        public void onResponse(Call<LoginPojo> call, Response<LoginPojo> response) {
+                            if (response.code() == 200) {
+                                mLoginProgressbar.setVisibility(View.GONE);
+                                LoginPojo loginObject = response.body();
+                                tokken = loginObject.getTokens();
+                                userId = loginObject.getUser().getId();
+                                SharedPreferences.Editor editor = getSharedPreferences("ProfileData", MODE_PRIVATE).edit();
+                                editor.putString("tokken", tokken);
+                                editor.putString("userId" , userId);
+                                editor.putBoolean("superAdmin" , true);
+                                editor.apply();
+                                Intent intent = new Intent(Login.this, AdminMainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                mLoginProgressbar.setVisibility(View.GONE);
+                                Toast.makeText(Login.this, "Email or Password is wrong", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<LoginPojo> call, Throwable t) {
+                            Toast.makeText(Login.this, "Error-LOG2", Toast.LENGTH_SHORT).show();
+                            mLoginProgressbar.setVisibility(View.GONE);
+                        }
+                    });
+
+                }
+                else {
 
                     goEmailLogin(username, pass);
                 }
@@ -92,7 +129,6 @@ public class Login extends AppCompatActivity {
                     finish();
                 } else {
                     mLoginProgressbar.setVisibility(View.GONE);
-                    Toast.makeText(Login.this, "" + response.code(), Toast.LENGTH_SHORT).show();
                     Toast.makeText(Login.this, "Email or Password is wrong", Toast.LENGTH_SHORT).show();
                 }
             }

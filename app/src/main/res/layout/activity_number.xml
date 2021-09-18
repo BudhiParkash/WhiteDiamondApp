@@ -110,7 +110,69 @@
                 android:id="@+id/numberRecycle"
                 />
 
+            <View
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="30dp"
+                android:background="@color/viewline"/>
+
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_margin="10dp"
+                app:strokeColor="@color/viewline"
+                app:strokeWidth="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" जय माता दी :- विजेता नंबर लिस्ट "
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="20sp"
+                        android:id="@+id/resultgameName"
+                        />
+                    <TextView
+                        android:layout_gravity="end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="एक वीक का रिजल्ट"
+                        android:textColor="@color/primaryTextColor"
+                        />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+
+            <TextView
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/noresult"
+                android:text="No Result till"
+                android:textColor="@color/black"
+                android:textSize="24dp"
+                android:gravity="center"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/resultRecycle"
+                />
+
         </LinearLayout>
+
 
 
 
@@ -119,5 +181,13 @@
         </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/numberProgressbar"
+        android:indeterminateTint="@color/colorPrimary"
+        android:visibility="gone"
+        />
 
 </RelativeLayout>

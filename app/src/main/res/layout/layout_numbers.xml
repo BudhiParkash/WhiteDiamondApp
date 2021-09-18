@@ -22,11 +22,24 @@
             app:strokeWidth="1dp"
             app:strokeColor="@color/black"
             >
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/locknumber"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_baseline_lock_clock_24">
+
+            </ImageView>
+
+
 
             <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/layoutNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
 
 
 
