@@ -65,7 +65,7 @@ public class MoneyActivity extends AppCompatActivity {
         }
 
         mPoints.setText(totaldiamondPoint+"");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd 'at' h:mm a");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         bookingdate = sdf.format(new Date());
         try {
             gameName = getIntent().getStringExtra("gameName");

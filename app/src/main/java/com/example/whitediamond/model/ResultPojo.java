@@ -17,6 +17,12 @@ public class ResultPojo {
     @Expose
     public String dateOfResult;
 
+    public ResultPojo( String gName, String winnerNumber, String dateOfResult) {
+        this.gName = gName;
+        this.winnerNumber = winnerNumber;
+        this.dateOfResult = dateOfResult;
+    }
+
     public String get_id() {
         return _id;
     }

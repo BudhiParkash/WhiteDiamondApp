@@ -39,9 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private TextView mMenuHome;
-    private RelativeLayout mAccountStatementLayout;
-    private RelativeLayout mBethistoryLayout;
-    private RelativeLayout mUnsetteledbetLayout;
+    private TextView mBethistoryLayout;
+
     private RelativeLayout mChangePLayout;
     private RelativeLayout mRulesLayout;
     private RelativeLayout mLogout;
@@ -93,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 if (response.code() == 200) {
                     mMainProgressbar.setVisibility(View.GONE);
                     gamePojoList = response.body();
-                    mGameAdapter = new GameAdapter(MainActivity.this, gamePojoList);
+                    mGameAdapter = new GameAdapter(MainActivity.this, gamePojoList , false);
                     mGameRecyle.setAdapter(mGameAdapter);
                     mGameAdapter.notifyDataSetChanged();
                 } else {
@@ -164,9 +163,7 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         mDrawerLayout = findViewById(R.id.drawerLayout);
         mMenuHome = findViewById(R.id.menu_home);
-        mAccountStatementLayout = findViewById(R.id.accountStatement_Layout);
-        mBethistoryLayout = findViewById(R.id.bethistory_layout);
-        mUnsetteledbetLayout = findViewById(R.id.unsetteledbet_layout);
+        mBethistoryLayout = findViewById(R.id.betHistory);
         mChangePLayout = findViewById(R.id.changeP_layout);
         mRulesLayout = findViewById(R.id.rules_layout);
         mLogout = findViewById(R.id.logout_layout);
@@ -202,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("token" , tokken);
                 intent.putExtra("userid" , userId);
                 startActivity(intent);
-                mDrawerLayout.closeDrawer(Gravity.LEFT);
+
             }
         });
 

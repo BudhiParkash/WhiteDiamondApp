@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhiteDiamond"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AdminApp.AdminMainActivity"></activity>
+        <activity android:name=".AdminApp.ProfitLossActivity"></activity>
+        <activity android:name=".AdminApp.AdminMainActivity" />
         <activity android:name=".ui.SideDrawerActivity.RulesActivity" />
         <activity android:name=".ui.SideDrawerActivity.BetHistoryActivity" />
         <activity android:name=".ui.SideDrawerActivity.ChangePasswordActivity" />

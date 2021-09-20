@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.whitediamond.R;
 import com.example.whitediamond.model.BookingPojo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class BetHistoryAdapter extends RecyclerView.Adapter<BetHistoryAdapter.BetViewHolder> {
@@ -19,6 +21,7 @@ public class BetHistoryAdapter extends RecyclerView.Adapter<BetHistoryAdapter.Be
 
     private Context context;
     private List<BookingPojo> bookingPojoList;
+
 
     public BetHistoryAdapter(Context context, List<BookingPojo> bookingPojoList) {
         this.context = context;
@@ -39,11 +42,32 @@ public class BetHistoryAdapter extends RecyclerView.Adapter<BetHistoryAdapter.Be
         String gameName = data.getGameName();
         int betPoint = data.getPointUsed();
         String bet_number = data.getNumberSelected();
+        String currentDate;
 
         holder.mBetDate.setText(betDate);
         holder.mBetName.setText(gameName);
         holder.mBetNumber.setText(bet_number);
-        holder.mBetPoint.setText(betPoint+"");
+        holder.mBetPoint.setText(betPoint + "");
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        currentDate = sdf.format(new Date());
+
+
+        if (data.getWinningProb()) {
+
+            holder.mBetPointResult.setText(9 * betPoint + "");
+           /* holder.mBetPoint.setBackgroundColor(context.getResources().getColor(R.color.greencolor));
+            holder.mBetPoint.setTextColor(context.getResources().getColor(R.color.white));*/
+        } else {
+            if (betDate.equals(currentDate)) {
+                holder.mBetPointResult.setText("" + betPoint);
+            } else {
+                holder.mBetPointResult.setText("-" + betPoint);
+                /*holder.mBetPoint.setBackgroundColor(context.getResources().getColor(R.color.redcolor));
+                holder.mBetPoint.setTextColor(context.getResources().getColor(R.color.white));*/
+            }
+
+        }
 
     }
 
@@ -52,12 +76,18 @@ public class BetHistoryAdapter extends RecyclerView.Adapter<BetHistoryAdapter.Be
         return bookingPojoList.size();
     }
 
+    private void initView() {
+
+    }
+
 
     public class BetViewHolder extends RecyclerView.ViewHolder {
         private TextView mBetDate;
         private TextView mBetName;
         private TextView mBetNumber;
         private TextView mBetPoint;
+        private TextView mBetPointResult;
+
         public BetViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -65,6 +95,7 @@ public class BetHistoryAdapter extends RecyclerView.Adapter<BetHistoryAdapter.Be
             mBetName = itemView.findViewById(R.id.bet_name);
             mBetNumber = itemView.findViewById(R.id.bet_number);
             mBetPoint = itemView.findViewById(R.id.bet_point);
+            mBetPointResult = itemView.findViewById(R.id.bet_point_result);
         }
     }
 }

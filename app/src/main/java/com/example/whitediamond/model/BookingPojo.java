@@ -35,6 +35,14 @@ public class BookingPojo {
         this.userId = userId;
     }
 
+    public boolean getWinningProb() {
+        return winningProb;
+    }
+
+    public void setWinningProb(boolean winningProb) {
+        this.winningProb = winningProb;
+    }
+
     public String getGameName() {
         return gameName;
     }
@@ -74,11 +82,5 @@ public class BookingPojo {
     public void setUserId(String userId) {
         this.userId = userId;
     }
-    public boolean isWinningProb() {
-        return winningProb;
-    }
 
-    public void setWinningProb(boolean winningProb) {
-        this.winningProb = winningProb;
-    }
 }

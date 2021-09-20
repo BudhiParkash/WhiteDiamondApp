@@ -17,5 +17,7 @@
     <color name="viewline">#CDCDCD</color>
         <color name="textcolor">#000000</color>
     <color name="danger">#CA1002</color>
+    <color name="greencolor">#7CFF36</color>
+    <color name="redcolor">#F31100</color>
 
 </resources>

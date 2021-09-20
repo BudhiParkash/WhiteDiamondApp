@@ -7,10 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.whitediamond.AdminApp.ProfitLossActivity;
 import com.example.whitediamond.R;
 import com.example.whitediamond.model.GamePojo;
 import com.example.whitediamond.ui.Activity.SelectNumberActivity;
@@ -21,10 +23,12 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
 
     private Context context;
     private List<GamePojo> gamePojoList;
+    private boolean isAdmin;
 
-    public GameAdapter(Context context, List<GamePojo> gamePojoList) {
+    public GameAdapter(Context context, List<GamePojo> gamePojoList , boolean isAdmin) {
         this.context = context;
         this.gamePojoList = gamePojoList;
+        this.isAdmin = isAdmin;
     }
 
     @NonNull
@@ -68,10 +72,19 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
                     GamePojo gameData = gamePojoList.get(getAdapterPosition());
                     String gameName = gameData.getGameTitle();
                     String resulttime = gameData.getStopTime();
-                    Intent intent = new Intent(context , SelectNumberActivity.class);
-                    intent.putExtra("gameName" , gameName);
-                    intent.putExtra("resulttime" , resulttime);
-                    context.startActivity(intent);
+                    if(isAdmin){
+                        Intent intent = new Intent(context , ProfitLossActivity.class);
+                        intent.putExtra("gameName" , gameName);
+                        intent.putExtra("resulttime" , resulttime);
+                        context.startActivity(intent);
+                    }
+                    else {
+                        Intent intent = new Intent(context , SelectNumberActivity.class);
+                        intent.putExtra("gameName" , gameName);
+                        intent.putExtra("resulttime" , resulttime);
+                        context.startActivity(intent);
+                    }
+
                 }
             });
         }

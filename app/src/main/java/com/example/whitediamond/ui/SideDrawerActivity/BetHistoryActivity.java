@@ -74,7 +74,7 @@ public class BetHistoryActivity extends AppCompatActivity {
                     mBetHistoryAdapter.notifyDataSetChanged();
                 }
                 else {
-                    Toast.makeText(BetHistoryActivity.this, "No Bet History", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(BetHistoryActivity.this, "No Bet History" + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
 

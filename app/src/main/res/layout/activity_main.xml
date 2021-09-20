@@ -112,9 +112,13 @@
                         />
 
                     <TextView
+                        android:id="@+id/betHistory"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:drawableStart="@drawable/ic_add_circle"
+                        android:text="Bet History"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:drawableTop="@drawable/ic_add_circle"
                         android:layout_alignParentEnd="true"
                         android:layout_margin="12dp"/>
 

@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".AdminApp.AdminMainActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:id="@+id/bckfromPL"
+                app:drawableStartCompat="@drawable/ic_arrow_back" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profit Loss"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:textSize="18sp"/>
+
+
+        </RelativeLayout>
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+        <TableLayout
+            android:id="@+id/table_heading_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableRow>
+
+                <TextView
+                    style="@style/table_header"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="Number"/>
+
+                <TextView
+                    android:layout_height="30dp"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_weight="1"
+                    android:text="Total Amount"
+                    style="@style/table_header"
+
+                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_height="30dp"
+                    android:layout_width="0dp"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:text="Profit Loss"
+                    style="@style/table_header"
+                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"/>
+
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_border"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/Number0"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center"
+                   />
+
+                <TextView
+                    android:id="@+id/total_amount_0"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/profitLosss_amount_0"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:baselineAligned="false"
+                    android:textAlignment="center" />
+
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_border"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/Number1"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center"
+                    />
+
+                <TextView
+                    android:id="@+id/total_amount_1"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/profitLosss_amount_1"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:baselineAligned="false"
+                    android:textAlignment="center" />
+
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_border"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/Number2"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center"
+                    />
+
+                <TextView
+                    android:id="@+id/total_amount_2"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/profitLosss_amount_2"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:baselineAligned="false"
+                    android:textAlignment="center" />
+
+            </TableRow>
+        </TableLayout>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_border"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/Number3"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center"
+                    />
+
+                <TextView
+                    android:id="@+id/total_amount_3"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/profitLosss_amount_3"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:baselineAligned="false"
+                    android:textAlignment="center" />
+
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_border"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/Number4"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center"
+                    />
+
+                <TextView
+                    android:id="@+id/total_amount_4"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/profitLosss_amount_4"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:baselineAligned="false"
+                    android:textAlignment="center" />
+
+            </TableRow>
+        </TableLayout>
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_border"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/Number5"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center"
+                    />
+
+                <TextView
+                    android:id="@+id/total_amount_5"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/profitLosss_amount_5"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:baselineAligned="false"
+                    android:textAlignment="center" />
+
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_border"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/Number6"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center"
+                    />
+
+                <TextView
+                    android:id="@+id/total_amount_6"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/profitLosss_amount_6"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:baselineAligned="false"
+                    android:textAlignment="center" />
+
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_border"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/Number7"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center"
+                    />
+
+                <TextView
+                    android:id="@+id/total_amount_7"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/profitLosss_amount_7"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:baselineAligned="false"
+                    android:textAlignment="center" />
+
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_border"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/Number8"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center"
+                    />
+
+                <TextView
+                    android:id="@+id/total_amount_8"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/profitLosss_amount_8"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:baselineAligned="false"
+                    android:textAlignment="center" />
+
+            </TableRow>
+        </TableLayout>
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_border"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/Number9"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="0"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center"
+                    />
+
+                <TextView
+                    android:id="@+id/total_amount_9"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="1"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/profitLosss_amount_9"
+                    style="@style/table_row_item"
+                    android:layout_width="0dp"
+                    android:layout_column="2"
+                    android:layout_margin="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:baselineAligned="false"
+                    android:textAlignment="center" />
+
+            </TableRow>
+        </TableLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:id="@+id/textInputEmail"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginTop="@dimen/loginViewsMargin">
+
+            <EditText
+                android:id="@+id/etxResultNumber"
+                style="@style/modifiedEditText"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textSize="16sp"
+                android:hint="Result Number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <android.widget.Button
+            android:id="@+id/declareResult"
+            style="@style/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:text="Submit" />
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/colorPrimary"
+        android:id="@+id/plProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

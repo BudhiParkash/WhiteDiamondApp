@@ -64,5 +64,14 @@ public class ApiClientInterface {
         @GET("/v1/mybooking")
         Call<List<BookingPojo>>   getBooking(@Header("Authorization")  String header , @Query("uid") String userId);
 
+
+        @GET("/v1/getresultbook")
+        Call<List<BookingPojo>>   getResultBoking(@Header("Authorization")  String header , @Query("date") String date ,
+                                                  @Query("gameName") String gameName,@Query("noSelected") String noSelected);
+
+        @POST("/v1/winner/create")
+        Call<Void>   createResult(@Header("Authorization")  String header , @Body ResultPojo resultPojo);
+
+
     }
 }
