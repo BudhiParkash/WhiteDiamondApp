@@ -4,6 +4,7 @@ import com.example.whitediamond.model.BookingPojo;
 import com.example.whitediamond.model.ChangePasswordPojo;
 import com.example.whitediamond.model.GamePojo;
 import com.example.whitediamond.model.LoginPojo;
+import com.example.whitediamond.model.PL_Bookings;
 import com.example.whitediamond.model.ResultPojo;
 import com.example.whitediamond.model.UserPojo;
 
@@ -24,7 +25,7 @@ public class ApiClientInterface {
     //192.168.29.43
     //192.168.1.5
     //192.168.36.72
-    private static final String url = "http://192.168.1.5:3001/";
+    private static final String url = "http://157.245.205.108/";
 
     public static WhiteDiamondApiService WDApiService = null;
 
@@ -34,7 +35,6 @@ public class ApiClientInterface {
                     .baseUrl(url)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-
             WDApiService = retrofit.create(WhiteDiamondApiService.class);
         }
         return WDApiService;
@@ -72,6 +72,16 @@ public class ApiClientInterface {
         @POST("/v1/winner/create")
         Call<Void>   createResult(@Header("Authorization")  String header , @Body ResultPojo resultPojo);
 
+        @GET("/v1/allbook")
+        Call<List<PL_Bookings>>   getWinnerLossUser(@Header("Authorization")  String header , @Query("date") String date ,
+                                                    @Query("game") String gameName);
+
+
+        @POST("/v1/create/user")
+        Call<LoginPojo>  createUser(@Header("Authorization")  String header ,@Body UserPojo userPojo);
+
+        @GET("/v1/reflist")
+        Call<List<UserPojo>>  getreferList(@Header("Authorization")  String header );
 
     }
 }

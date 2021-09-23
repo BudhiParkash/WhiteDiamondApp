@@ -74,12 +74,14 @@ public class BetHistoryActivity extends AppCompatActivity {
                     mBetHistoryAdapter.notifyDataSetChanged();
                 }
                 else {
-                    Toast.makeText(BetHistoryActivity.this, "No Bet History" + response.code(), Toast.LENGTH_SHORT).show();
+                    mBethistoryProgressbar.setVisibility(View.GONE);
+                    Toast.makeText(BetHistoryActivity.this, "No Bet History" , Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<BookingPojo>> call, Throwable t) {
+                mBethistoryProgressbar.setVisibility(View.GONE);
                 Toast.makeText(BetHistoryActivity.this, "try after sometime", Toast.LENGTH_SHORT).show();
             }
         });

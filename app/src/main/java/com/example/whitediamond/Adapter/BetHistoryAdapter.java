@@ -59,13 +59,10 @@ public class BetHistoryAdapter extends RecyclerView.Adapter<BetHistoryAdapter.Be
            /* holder.mBetPoint.setBackgroundColor(context.getResources().getColor(R.color.greencolor));
             holder.mBetPoint.setTextColor(context.getResources().getColor(R.color.white));*/
         } else {
-            if (betDate.equals(currentDate)) {
-                holder.mBetPointResult.setText("" + betPoint);
-            } else {
-                holder.mBetPointResult.setText("-" + betPoint);
+          holder.mBetPointResult.setText("-" + betPoint);
                 /*holder.mBetPoint.setBackgroundColor(context.getResources().getColor(R.color.redcolor));
                 holder.mBetPoint.setTextColor(context.getResources().getColor(R.color.white));*/
-            }
+
 
         }
 
@@ -74,10 +71,6 @@ public class BetHistoryAdapter extends RecyclerView.Adapter<BetHistoryAdapter.Be
     @Override
     public int getItemCount() {
         return bookingPojoList.size();
-    }
-
-    private void initView() {
-
     }
 
 

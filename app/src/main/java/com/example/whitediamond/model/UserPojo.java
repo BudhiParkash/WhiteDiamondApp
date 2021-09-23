@@ -33,9 +33,21 @@ public class UserPojo {
     @Expose
     public String id;
 
+    public UserPojo(String user_name, String email, String passw, int dimondPoint, int refferBy) {
+        this.user_name = user_name;
+        this.email = email;
+        this.passw = passw;
+        this.dimondPoint = dimondPoint;
+        this.refferBy = refferBy;
+    }
+
     public UserPojo(String email, String passw) {
         this.email = email;
         this.passw = passw;
+    }
+
+    public UserPojo(String id) {
+        this.id = id;
     }
 
     public String getUser_name() {
@@ -78,7 +90,7 @@ public class UserPojo {
         this.dimondPoint = dimondPoint;
     }
 
-    public boolean isSubAdmin() {
+    public boolean getSubAdmin() {
         return subAdmin;
     }
 

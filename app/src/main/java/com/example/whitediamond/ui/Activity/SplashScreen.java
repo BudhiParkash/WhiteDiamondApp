@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowInsets;
 import android.view.WindowManager;
@@ -25,7 +26,6 @@ public class SplashScreen extends AppCompatActivity {
     private Animation splashAnimation;
 //    Handler handler;
 //    Runnable runnable;
-    private String tokken;
     private boolean superadmin = false;
 
     @Override
@@ -35,7 +35,6 @@ public class SplashScreen extends AppCompatActivity {
         initView();
         FullScreencall();
         SharedPreferences prefs = getSharedPreferences("ProfileData", MODE_PRIVATE);
-        tokken = prefs.getString("tokken", "no tokkens");
         superadmin = prefs.getBoolean("superAdmin" , false);
 
         splashAnimation = AnimationUtils.loadAnimation(this , R.anim.splashanimation);
@@ -53,24 +52,18 @@ public class SplashScreen extends AppCompatActivity {
                new Handler(getMainLooper()).postDelayed(new Runnable() {
                    @Override
                    public void run() {
-                       if (tokken.equals("no tokkens")) {
-                           Intent intent = new Intent(SplashScreen.this , Login.class);
-                           startActivity(intent);
-                           finish();
 
-                       } else {
                            if(superadmin){
                                Intent intent = new Intent(SplashScreen.this , AdminMainActivity.class);
                                startActivity(intent);
                                finish();
                            }
                            else {
-                               Intent intent = new Intent(SplashScreen.this , MainActivity.class);
+                               Intent intent = new Intent(SplashScreen.this , Login.class);
                                startActivity(intent);
                                finish();
                            }
 
-                       }
                    }
                },500);
 

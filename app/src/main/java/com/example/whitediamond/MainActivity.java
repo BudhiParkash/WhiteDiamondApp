@@ -18,9 +18,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.whitediamond.Adapter.BetHistoryAdapter;
 import com.example.whitediamond.Adapter.GameAdapter;
 import com.example.whitediamond.Api.ApiClientInterface;
+import com.example.whitediamond.SubAdmin.SubAdminActivity;
 import com.example.whitediamond.model.GamePojo;
 import com.example.whitediamond.model.UserPojo;
 import com.example.whitediamond.ui.Activity.Login;
@@ -56,7 +56,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView mDiamondpoints;
     private TextView mUserName;
     private TextView mAccountUserName;
-    private String  userId;
+    private String userId;
+    private RelativeLayout mSubAdminLayout;
+
+    private boolean isSabAdmin;
+    private int refferID;
+    private int refferBy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        getUser();
 
         mLayoutManager = new GridLayoutManager(MainActivity.this, 2);
         mGameRecyle.setLayoutManager(mLayoutManager);
@@ -92,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 if (response.code() == 200) {
                     mMainProgressbar.setVisibility(View.GONE);
                     gamePojoList = response.body();
-                    mGameAdapter = new GameAdapter(MainActivity.this, gamePojoList , false);
+                    mGameAdapter = new GameAdapter(MainActivity.this, gamePojoList, false);
                     mGameRecyle.setAdapter(mGameAdapter);
                     mGameAdapter.notifyDataSetChanged();
                 } else {
@@ -126,7 +133,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        getUser();
+
+
+
+        mSubAdminLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this , SubAdminActivity.class);
+                intent.putExtra("tokken" , tokken);
+                intent.putExtra("refferID" , refferID);
+                intent.putExtra("refferBy", refferBy);
+                startActivity(intent);
+                mDrawerLayout.closeDrawer(Gravity.LEFT);
+
+            }
+        });
+
     }
 
     private void getUser() {
@@ -138,15 +160,23 @@ public class MainActivity extends AppCompatActivity {
                 if (response.code() == 200) {
                     UserPojo data = response.body();
                     diamonPoints = data.getDimondPoint();
+                    isSabAdmin = data.getSubAdmin();
+                    refferID = data.getRefferId();
+                    refferBy = data.getRefferBy();
                     userId = data.getId();
                     SharedPreferences.Editor editor = getSharedPreferences("ProfileData", MODE_PRIVATE).edit();
                     editor.putInt("dp", diamonPoints);
                     editor.apply();
                     mDiamondpoints.setText(diamonPoints + "");
                     mAccountUserName.setText(data.getUser_name());
-                    mUserName.setText("Hi! " +data.getUser_name());
+                    mUserName.setText("Hi! " + data.getUser_name());
                     mMainProgressbar.setVisibility(View.GONE);
+                    if(isSabAdmin){
+                        mSubAdminLayout.setVisibility(View.VISIBLE);
+                    }
+
                 } else {
+
                     Toast.makeText(MainActivity.this, "User not found", Toast.LENGTH_SHORT).show();
                     mMainProgressbar.setVisibility(View.GONE);
                 }
@@ -176,7 +206,6 @@ public class MainActivity extends AppCompatActivity {
         mAccountUserName = findViewById(R.id.accountUserName);
 
 
-
         mLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -195,9 +224,9 @@ public class MainActivity extends AppCompatActivity {
         mBethistoryLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this , BetHistoryActivity.class);
-                intent.putExtra("token" , tokken);
-                intent.putExtra("userid" , userId);
+                Intent intent = new Intent(MainActivity.this, BetHistoryActivity.class);
+                intent.putExtra("token", tokken);
+                intent.putExtra("userid", userId);
                 startActivity(intent);
 
             }
@@ -206,12 +235,13 @@ public class MainActivity extends AppCompatActivity {
         mRulesLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this , RulesActivity.class);
+                Intent intent = new Intent(MainActivity.this, RulesActivity.class);
                 startActivity(intent);
                 mDrawerLayout.closeDrawer(Gravity.LEFT);
             }
         });
 
 
+        mSubAdminLayout = findViewById(R.id.subAdmin_layout);
     }
 }

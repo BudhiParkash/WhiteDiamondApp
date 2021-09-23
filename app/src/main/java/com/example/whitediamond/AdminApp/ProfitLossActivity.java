@@ -1,5 +1,6 @@
 package com.example.whitediamond.AdminApp;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -89,6 +90,8 @@ public class ProfitLossActivity extends AppCompatActivity {
     int totalsum = 0;
     private EditText mEtxResultNumber;
     private Button mDeclareResult;
+    private TextView mProfitlossuser;
+    private TextView mGName;
 
 
     @Override
@@ -117,17 +120,33 @@ public class ProfitLossActivity extends AppCompatActivity {
             }
         });
 
+
+        mGName.setText(gameName+ " - " + currentDate);
+
+
+        mProfitlossuser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfitLossActivity.this, PLUserActivity.class);
+                intent.putExtra("game", gameName);
+                intent.putExtra("date", currentDate);
+                intent.putExtra("token", tokken);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
         mDeclareResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String resultNumber = mEtxResultNumber.getText().toString();
-                if(TextUtils.isEmpty(resultNumber)){
+                if (TextUtils.isEmpty(resultNumber)) {
                     mEtxResultNumber.setError("Please enter result Number");
                     mEtxResultNumber.requestFocus();
                     return;
-                }
-                else {
-                    publishResult(resultNumber ,gameName , currentDate);
+                } else {
+                    publishResult(resultNumber, gameName, currentDate);
                 }
             }
         });
@@ -137,18 +156,17 @@ public class ProfitLossActivity extends AppCompatActivity {
 
     private void publishResult(String resultNumber, String gameName, String currentDate) {
         mPlProgressBar.setVisibility(View.VISIBLE);
-        ResultPojo resultPojo = new ResultPojo(gameName ,resultNumber , currentDate);
-        Call<Void> call = ApiClientInterface.getWDApiService().createResult(tokken ,resultPojo);
+        ResultPojo resultPojo = new ResultPojo(gameName, resultNumber, currentDate);
+        Call<Void> call = ApiClientInterface.getWDApiService().createResult(tokken, resultPojo);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
-                if(response.code()==201){
+                if (response.code() == 201) {
                     mPlProgressBar.setVisibility(View.GONE);
                     Toast.makeText(ProfitLossActivity.this, "Result is published", Toast.LENGTH_SHORT).show();
                     finish();
 
-                }
-                else {
+                } else {
                     mPlProgressBar.setVisibility(View.GONE);
                     Toast.makeText(ProfitLossActivity.this, "Failed to published Result ", Toast.LENGTH_SHORT).show();
 
@@ -588,5 +606,7 @@ public class ProfitLossActivity extends AppCompatActivity {
         mProfitLosssAmount9 = findViewById(R.id.profitLosss_amount_9);
         mEtxResultNumber = findViewById(R.id.etxResultNumber);
         mDeclareResult = findViewById(R.id.declareResult);
+        mProfitlossuser = findViewById(R.id.profitlossuser);
+        mGName = findViewById(R.id.gName);
     }
 }

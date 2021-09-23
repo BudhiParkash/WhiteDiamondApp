@@ -89,9 +89,9 @@ public class NumberAdapter extends RecyclerView.Adapter<NumberAdapter.NumberView
             });
 
             String[] split1 = resulttime.split(" ");
-            if (resulttime.contains("AM")) {
+            if (resulttime.contains("AM") || resulttime.contains("am")) {
                 endtime = Integer.parseInt(split1[0]);
-            } else if (resulttime.contains("PM")) {
+            } else if (resulttime.contains("PM") ||resulttime.contains("pm")) {
                 endtime = Integer.parseInt(split1[0]);
                 if (endtime != 12) {
                     endtime = endtime + 12;
@@ -101,9 +101,9 @@ public class NumberAdapter extends RecyclerView.Adapter<NumberAdapter.NumberView
             SimpleDateFormat sdf = new SimpleDateFormat("h a");
             serverTime = sdf.format(new Date());
             String[] split = serverTime.split(" ");
-            if (serverTime.contains("am")) {
+            if (serverTime.contains("am") || serverTime.contains("AM")) {
                     currentTime = Integer.parseInt(split[0]);
-            } else if (serverTime.contains("pm")) {
+            } else if (serverTime.contains("pm") || serverTime.contains("PM")) {
                 currentTime = Integer.parseInt(split[0]);
                 if (currentTime != 12) {
                     currentTime = currentTime + 12;
@@ -119,11 +119,6 @@ public class NumberAdapter extends RecyclerView.Adapter<NumberAdapter.NumberView
                 mLocknumber.setVisibility(View.VISIBLE);
                 itemView.setClickable(false);
             }
-
-
-
-
-
         }
     }
 }

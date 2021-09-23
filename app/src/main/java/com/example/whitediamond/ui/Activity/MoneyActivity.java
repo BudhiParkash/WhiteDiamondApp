@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.whitediamond.Api.ApiClientInterface;
 import com.example.whitediamond.R;
 import com.example.whitediamond.model.BookingPojo;
+import com.example.whitediamond.model.UserPojo;
 import com.example.whitediamond.ui.Fragments.DoneDialogueFragment;
 
 import java.text.SimpleDateFormat;
@@ -235,6 +236,7 @@ public class MoneyActivity extends AppCompatActivity {
 
         mMoneyProgressbar.setVisibility(View.VISIBLE);
         int points = Integer.parseInt(finalPoints);
+
 
         BookingPojo bookingPojo = new BookingPojo(gameName, bookingdate, number, points, userID);
         Call<Void> call = ApiClientInterface.getWDApiService().postbooking(tokken, bookingPojo);

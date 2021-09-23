@@ -38,6 +38,18 @@
                 android:textSize="18sp"/>
 
 
+            <TextView
+                android:id="@+id/profitlossuser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_user_circle_24"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+
+                />
+
+
         </RelativeLayout>
 
 <androidx.core.widget.NestedScrollView
@@ -49,6 +61,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_marginTop="10dp"
+        android:id="@+id/gName"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+
+        />
 
 
         <TableLayout

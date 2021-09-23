@@ -108,7 +108,6 @@ public class SelectNumberActivity extends AppCompatActivity {
             public void onResponse(Call<List<ResultPojo>> call, Response<List<ResultPojo>> response) {
                 if (response.code() == 200) {
                     resultPojos = response.body();
-                    mNumberProgressbar.setVisibility(View.GONE);
                     mResultAdapter = new ResultAdapter(SelectNumberActivity.this, resultPojos);
                     mResultRecycle.setAdapter(mResultAdapter);
                     mResultAdapter.notifyDataSetChanged();

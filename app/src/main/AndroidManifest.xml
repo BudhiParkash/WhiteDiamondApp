@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WhiteDiamond"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AdminApp.ProfitLossActivity"></activity>
+        <activity android:name=".SubAdmin.AddUserActivity" />
+        <activity android:name=".SubAdmin.SubAdminActivity" />
+        <activity android:name=".AdminApp.PLUserActivity" />
+        <activity android:name=".AdminApp.ProfitLossActivity" />
         <activity android:name=".AdminApp.AdminMainActivity" />
         <activity android:name=".ui.SideDrawerActivity.RulesActivity" />
         <activity android:name=".ui.SideDrawerActivity.BetHistoryActivity" />

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import com.example.whitediamond.AdminApp.ProfitLossActivity;
 import com.example.whitediamond.R;
 import com.example.whitediamond.model.GamePojo;
 import com.example.whitediamond.ui.Activity.SelectNumberActivity;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -43,9 +45,14 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
         GamePojo data = gamePojoList.get(position);
         String gameName = data.getGameTitle();
         String gameResultTime = data.getStopTime();
+        String gameImageLink = data.getLogoLink();
 
         holder.mGameName.setText(gameName);
         holder.mResulttime.setText(gameResultTime);
+
+
+        Picasso.get().load(gameImageLink).placeholder(R.drawable.moneyyy).into(holder.imageView);
+
 
 
     }
@@ -60,11 +67,13 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
         private LinearLayout mGamelayout;
         private TextView mGameName;
         private TextView mResulttime;
+        private ImageView imageView;
         public GameViewHolder(@NonNull View itemView) {
             super(itemView);
             mGamelayout = itemView.findViewById(R.id.gamelayout);
             mGameName = itemView.findViewById(R.id.gameName);
             mResulttime = itemView.findViewById(R.id.resulttime);
+            imageView = itemView.findViewById(R.id.gameImage);
 
             mGamelayout.setOnClickListener(new View.OnClickListener() {
                 @Override
